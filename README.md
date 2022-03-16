@@ -19,6 +19,8 @@ Miao J, Han N, Qiang Y, et al. 16SPIP: a comprehensive analysis pipeline for rap
 
 https://github.com/marcomeola/DAIRYdb
 
+https://microbiology.se/software/metaxa2/
+
 Now the database version is 2.0.
 
 download database file named: SSU_DAIRYdb_v2.0_20210401_MTX.zip
