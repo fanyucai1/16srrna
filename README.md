@@ -1,4 +1,8 @@
-# Command1
+# pre:
+
+    docker pull fanyucai1/16srrna
+
+# method1:
 
     docker run -v /staging2/fanyucai/16s_rRNA/output/:/project/ \
     -v /staging2/fanyucai/16s_rRNA/test_data/:/opt/ 16srrna \
@@ -9,7 +13,7 @@ https://github.com/jjmiao1314/16sPIP
 Miao J, Han N, Qiang Y, et al. 16SPIP: a comprehensive analysis pipeline for rapid pathogen detection in clinical samples based on 16S metagenomic sequencing[J]. BMC bioinformatics, 2017, 18(16): 255-259.
 
 
-# Commanad2
+# method2:
 
 ## build database
 
@@ -23,7 +27,7 @@ download database file named: SSU_DAIRYdb_v2.0_20210401_MTX.zip
     cp SSU_DAIRYdb_v2.0_20210401_MTX.zip /path/to/metaxa2_db/SSU/
     cd  /path/to/metaxa2_db/SSU/ && unzip SSU_DAIRYdb_v2.0_20210401_MTX.zip
     mv /path/to/metaxa2_db/SSU/SSU_DAIRYdb_v2.0_20210401_MTX/* /path/to/metaxa2_db/SSU/
-    blast-2.2.14/bin/formatdb -i blast.fasta -p F -n blast
+    cd /path/to/metaxa2_db/SSU/ && blast-2.2.14/bin/formatdb -i blast.fasta -p F -n blast
 
 ## analysis
 
