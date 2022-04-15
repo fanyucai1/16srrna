@@ -43,3 +43,19 @@ download database file named: SSU_DAIRYdb_v2.0_20210401_MTX.zip
     docker run -v /staging2/fanyucai/16s_rRNA/output/:/project/ 16srrna \
     /software/Metaxa2_2.2.3/metaxa2_ttt -i /project/test.taxonomy.txt -o prefix
 
+## assembly
+
+docker run -v /staging2/fanyucai/16s_rRNA/output/:/project/ \
+-v /staging2/fanyucai/16s_rRNA/test_data/:/opt/ 16srrna \
+flash -o prefix -d /project/ /opt/R1.fastq.gz /opt/R2.fastq.gz
+
+##  quality control
+
+docker run -v /staging2/fanyucai/16s_rRNA/output/:/project/ \
+ -v /staging2/fanyucai/16s_rRNA/reference/:/opt/
+16srrna java -jar trimmomatic-0.39.jar SE /project/input.fq.gz /project/output.fq.gz \
+ILLUMINACLIP:TruSeq3-SE:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:300
+
+
+kraken2 --db $DBNAME --threads 24 --report k2_report.txt --report-minimizer-data \
+    --output k2_output.txt sequence_data.fq
